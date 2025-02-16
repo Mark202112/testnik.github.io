@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Натяжные потолки</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="header">
+        <h2>Натяжные потолки</h2>
+        <div>
+            <a href="#gallery">Примеры работ</a>
+            <a href="https://instagram.com/top__steli.nk/" target="_blank">
+                <img src="images/instagram.png" alt="Instagram" loading="lazy">Instagram
+            </a>
+            <a href="tel:+1234567890">Позвонить</a>
+        </div>
+    </div>
+    <div class="hero">
+        <h1>Идеальные натяжные потолки</h1>
+        <p>Качественные материалы, стильный дизайн, профессиональный монтаж.</p>
+        <a href="#contact" class="btn">Заказать</a>
+    </div>
+    <div id="gallery" class="gallery">
+        <div class="slider-column">
+            <button class="prev" onclick="moveSlide(-1, 'slider1')">&#10094;</button>
+            <div class="slider" id="slider1">
+                <div class="slide">
+                    <picture>
+                        <source srcset="images/photo1.webp" type="image/webp">
+                        <img src="images/photo1.jpg" alt="Пример работы" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slide">
+                    <picture>
+                        <source srcset="images/photo2.webp" type="image/webp">
+                        <img src="images/photo2.jpg" alt="Пример работы" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slide">
+                    <picture>
+                        <source srcset="images/photo3.webp" type="image/webp">
+                        <img src="images/photo3.jpg" alt="Пример работы" loading="lazy">
+                    </picture>
+                </div>
+            </div>
+            <button class="next" onclick="moveSlide(1, 'slider1')">&#10095;</button>
+        </div>
+
+        <div class="slider-column">
+            <button class="prev" onclick="moveSlide(-1, 'slider2')">&#10094;</button>
+            <div class="slider" id="slider2">
+                <div class="slide">
+                    <picture>
+                        <source srcset="images/photo4.webp" type="image/webp">
+                        <img src="images/photo4.jpg" alt="Пример работы" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slide">
+                    <picture>
+                        <source srcset="images/photo5.webp" type="image/webp">
+                        <img src="images/photo5.jpg" alt="Пример работы" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slide">
+                    <picture>
+                        <source srcset="images/photo6.webp" type="image/webp">
+                        <img src="images/photo6.jpg" alt="Пример работы" loading="lazy">
+                    </picture>
+                </div>
+            </div>
+            <button class="next" onclick="moveSlide(1, 'slider2')">&#10095;</button>
+        </div>
+
+        <div class="slider-column">
+            <button class="prev" onclick="moveSlide(-1, 'slider3')">&#10094;</button>
+            <div class="slider" id="slider3">
+                <div class="slide">
+                    <picture>
+                        <source srcset="images/photo7.webp" type="image/webp">
+                        <img src="images/photo7.jpg" alt="Пример работы" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slide">
+                    <picture>
+                        <source srcset="images/photo8.webp" type="image/webp">
+                        <img src="images/photo8.jpg" alt="Пример работы" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slide">
+                    <picture>
+                        <source srcset="images/photo9.webp" type="image/webp">
+                        <img src="images/photo9.jpg" alt="Пример работы" loading="lazy">
+                    </picture>
+                </div>
+            </div>
+            <button class="next" onclick="moveSlide(1, 'slider3')">&#10095;</button>
+        </div>
+    </div>
+    <div id="contact" class="contact">
+        <h2>Свяжитесь с нами</h2>
+        <p>📞 <a href="tel:+1234567890">+1 234 567 890</a></p>
+        <p>
+            <a href="https://instagram.com/top__steli.nk/" target="_blank">
+                <img src="images/instagram.png" alt="Instagram" loading="lazy" class="instagram-logo">Instagram
+            </a>
+        </p>
+    </div>
+    <script>
+        function moveSlide(direction, sliderId) {
+            const slider = document.getElementById(sliderId);
+            const slides = slider.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            let index = parseInt(slider.dataset.index || '0');
+            index = (index + direction + totalSlides) % totalSlides;
+            slider.dataset.index = index;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
+</body>
+</html>
