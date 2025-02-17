@@ -5,22 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Натяжні стелі</title>
     <link rel="stylesheet" href="css/style.css">
-
     <style>
-        /* Стили для увеличенной картинки */
-        @media (max-width: 768px) {
-            .gallery img {
-                cursor: pointer;
-                transition: transform 0.3s ease;
-            }
-
-            .gallery img.active {
-                transform: scale(2); /* Увеличение картинки */
-                z-index: 9999; /* Чтобы картинка была поверх других */
-            }
+        /* Добавим стиль для увеличенного изображения */
+        .gallery img.active {
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+            z-index: 10;
         }
     </style>
-
 </head>
 
 <script>
@@ -47,18 +39,18 @@
             }
         });
 
-        // Увеличение изображения при клике на мобильных устройствах
+        // Увеличение/уменьшение изображения при клике на мобильных устройствах
         const images = document.querySelectorAll('.gallery img');
         images.forEach(img => {
             img.addEventListener('click', function() {
                 if (window.innerWidth <= 768) { // Проверка на мобильное устройство
-                    img.classList.toggle('active');
+                    img.classList.toggle('active'); // Переключаем класс active
                 }
             });
         });
     });
 </script>
-    
+
 <body>
     <div class="header">
         <h2>Натяжні стелі</h2>
@@ -66,7 +58,6 @@
             <a href="#gallery">Приклади робіт</a>
         </div>
     </div>
-    
     
     <div class="hero">
         <div class="hero__bg"></div> <!-- Контейнер с фоном -->
