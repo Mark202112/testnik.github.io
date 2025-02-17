@@ -3,7 +3,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Темный фон */
+    background-color: #181818; /* Темный фон */
     color: #fff; /* Белый текст */
     text-align: center;
 }
@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #1f1f1f; /* Темний фон для шапки */
+    background: #222222; /* Темний фон для шапки */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Тінь */
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 .header-links a:hover {
-    color: #f5a623; /* Колір при наведенні */
+    color: #e68900; /* Колір при наведенні */
 }
 
 .header img {
@@ -143,7 +143,7 @@ body {
 }
 
 .btn:hover {
-    background: #ff7e00; /* Цвет кнопки при наведении */
+    background: #e68900; /* Цвет кнопки при наведении */
 }
 
 /* Контактная информация */
