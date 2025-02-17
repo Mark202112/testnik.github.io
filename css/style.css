@@ -293,3 +293,14 @@ body {
 .gallery-container img:hover {
     transform: scale(1.55);
 }
+
+/* Увеличение картинки при клике только для мобильных */
+@media (max-width: 768px) {
+    .gallery-container img {
+        cursor: pointer;
+    }
+
+    .gallery-container img.enlarged {
+        transform: scale(1.55);
+    }
+}
