@@ -133,15 +133,13 @@ body {
 }
 
 
-
 /* Адаптивный дизайн для мобильных устройств */
 @media (max-width: 768px) {
     .hero {
         background-size: contain; /* Фон полностью помещается */
         background-position: center;
     }
-}
-@media (max-width: 768px) {
+
     .hero h1 {
         font-size: 2.2em;
     }
@@ -153,6 +151,28 @@ body {
     .btn {
         padding: 10px 25px;
         font-size: 1.1em;
+    }
+
+    .gallery-container {
+        max-width: 90%;
+    }
+
+    .gallery-container img {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .gallery h2 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery h2 {
+        font-size: 1.6em;
     }
 }
 
@@ -272,29 +292,4 @@ body {
 
 .gallery-container img:hover {
     transform: scale(1.55);
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .gallery-container {
-        max-width: 90%;
-    }
-
-    .gallery-container img {
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .gallery h2 {
-        font-size: 1.8em;
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery-container {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery h2 {
-        font-size: 1.6em;
-    }
 }
