@@ -7,43 +7,33 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-    
+
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("orderModal");
-    const openModalBtn = document.querySelector(".btn");
-    const closeModalBtn = document.querySelector(".close");
-    const modalImage = document.querySelector(".modal-img");  // Изображение внутри модального окна
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("orderModal");
+        const openModalBtn = document.querySelector(".btn");
+        const closeModalBtn = document.querySelector(".close");
 
-    // Открытие модального окна
-    openModalBtn.addEventListener("click", function (event) {
-        event.preventDefault(); // Отменяем действие ссылки
-        modal.classList.add("show");
-    });
+        // Открытие модального окна
+        openModalBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // Отменяем действие ссылки
+            modal.classList.add("show");
+        });
 
-    // Закрытие модального окна
-    closeModalBtn.addEventListener("click", function () {
-        modal.classList.remove("show");
-    });
-
-    // Закрытие при клике вне окна
-    window.addEventListener("click", function (event) {
-        if (event.target === modal) {
+        // Закрытие модального окна
+        closeModalBtn.addEventListener("click", function () {
             modal.classList.remove("show");
-        }
-    });
+        });
 
-    // Добавляем обработчик для клика по картинке в модальном окне
-    modalImage.addEventListener("click", function () {
-        if (modalImage.classList.contains("enlarged")) {
-            modalImage.classList.remove("enlarged");  // Уменьшаем изображение
-        } else {
-            modalImage.classList.add("enlarged");  // Увеличиваем изображение
-        }
+        // Закрытие при клике вне окна
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.classList.remove("show");
+            }
+        });
     });
-});
 </script>
-
+    
 <body>
     <div class="header">
         <h2>Натяжні стелі</h2>
