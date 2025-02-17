@@ -195,7 +195,9 @@ body {
     }
 
     .gallery-container {
+        width: 100%;
         max-width: 90%;
+        margin: 0 auto; /* Центрируем */
     }
 
     .gallery-container img {
