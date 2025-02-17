@@ -79,13 +79,54 @@ body {
     z-index: -1; /* Отправляем фон назад */
 }
 
+    /* Блок с текстом */
+    .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.6); /* Затемненный фон */
+        padding: 20px 30px;
+        border-radius: 10px;
+        text-align: center;
+        color: white;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
 
-.hero h1 {
+    /* Заголовок */
+    .text-overlay h2 {
+        font-size: 24px;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    /* Обычный текст */
+    .text-overlay p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-top: 10px;
+    }
+
+    /* Контейнер с фоновым изображением */
+    .background {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: url('background.jpg') center/cover no-repeat; /* Замените на ваше изображение */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+.background-container h1 {
     font-size: 3em;
     margin-bottom: 20px;
 }
 
-.hero p {
+.background-container p {
     font-size: 1.5em;
     margin-bottom: 30px;
 }
