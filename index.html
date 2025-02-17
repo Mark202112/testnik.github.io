@@ -6,6 +6,21 @@
     <title>Натяжні стелі</title>
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+        /* Стили для увеличенной картинки */
+        @media (max-width: 768px) {
+            .gallery img {
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .gallery img.active {
+                transform: scale(2); /* Увеличение картинки */
+                z-index: 9999; /* Чтобы картинка была поверх других */
+            }
+        }
+    </style>
+
 </head>
 
 <script>
@@ -31,6 +46,16 @@
                 modal.classList.remove("show");
             }
         });
+
+        // Увеличение изображения при клике на мобильных устройствах
+        const images = document.querySelectorAll('.gallery img');
+        images.forEach(img => {
+            img.addEventListener('click', function() {
+                if (window.innerWidth <= 768) { // Проверка на мобильное устройство
+                    img.classList.toggle('active');
+                }
+            });
+        });
     });
 </script>
     
@@ -41,7 +66,6 @@
             <a href="#gallery">Приклади робіт</a>
         </div>
     </div>
-    
     
     
     <div class="hero">
@@ -80,9 +104,6 @@
     </div>
 </section>
 
-
-
-
 <div id="contact" class="contact">
     <h2>Наші соціальні мережі</h2>
     <p style="display: flex; align-items: center; justify-content: center;">
@@ -99,64 +120,60 @@
     </p>
 </div>
 
+<script>
+    // Открытие и закрытие модального окна
+    function openModal() {
+        document.getElementById("orderModal").classList.add("show");
+    }
+    function closeModal() {
+        document.getElementById("orderModal").classList.remove("show");
+    }
 
-
-
-
-    <script>
-        // Открытие и закрытие модального окна
-        function openModal() {
-            document.getElementById("orderModal").classList.add("show");
+    // Закрытие окна при клике вне его
+    window.onclick = function(event) {
+        let modal = document.getElementById("orderModal");
+        if (event.target === modal) {
+            closeModal();
         }
-        function closeModal() {
-            document.getElementById("orderModal").classList.remove("show");
+    };
+
+    // Отправка данных в Telegram
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        const TOKEN = "7997339405:AAFmjR0Jr19ba_YvRCh-mhFzhYmDVq6Cnts"; // Твой токен
+        const CHAT_ID = "1257835194"; // Нужно заменить на настоящий ID чата!
+        const API_URL = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+        let name = document.getElementById("name").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+
+        if (!name || !phone) {
+            alert("Заповніть усі поля!");
+            return;
         }
 
-        // Закрытие окна при клике вне его
-        window.onclick = function(event) {
-            let modal = document.getElementById("orderModal");
-            if (event.target === modal) {
+        let message = `🚀 Нове замовлення!\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
+
+        fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                alert("✅ Ваше замовлення надіслано! Ми скоро зв'яжемося з вами.");
                 closeModal();
+            } else {
+                alert("❌ Помилка при надсиланні.");
             }
-        };
-
-        // Отправка данных в Telegram
-        document.getElementById("orderForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-            
-            const TOKEN = "7997339405:AAFmjR0Jr19ba_YvRCh-mhFzhYmDVq6Cnts"; // Твой токен
-            const CHAT_ID = "1257835194"; // Нужно заменить на настоящий ID чата!
-            const API_URL = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
-
-            let name = document.getElementById("name").value.trim();
-            let phone = document.getElementById("phone").value.trim();
-
-            if (!name || !phone) {
-                alert("Заповніть усі поля!");
-                return;
-            }
-
-            let message = `🚀 Нове замовлення!\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
-
-            fetch(API_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    alert("✅ Ваше замовлення надіслано! Ми скоро зв'яжемося з вами.");
-                    closeModal();
-                } else {
-                    alert("❌ Помилка при надсиланні.");
-                }
-            })
-            .catch(error => {
-                alert("❌ Помилка: " + error);
-            });
+        })
+        .catch(error => {
+            alert("❌ Помилка: " + error);
         });
-    </script>
+    });
+</script>
 
 </body>
 </html>
