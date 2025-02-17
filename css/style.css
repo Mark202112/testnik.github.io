@@ -174,11 +174,15 @@ body {
 }
 
 
-/* Адаптивный дизайн для мобильных устройств */
 @media (max-width: 768px) {
     .hero {
-        background-size: contain; /* Фон полностью помещается */
+        width: 100%; /* Гарантируем, что контейнер не выйдет за границы */
+        max-width: 100%;
+        background-size: cover; /* Заполняет всю область */
         background-position: center;
+        padding: 20px;
+        text-align: center;
+        overflow: hidden; /* На случай, если что-то выходит за пределы */
     }
 
     .hero h1 {
@@ -197,7 +201,9 @@ body {
     .gallery-container {
         width: 100%;
         max-width: 90%;
-        margin: 0 auto; /* Центрируем */
+        margin: 0 auto;
+        display: grid;
+        gap: 10px;
     }
 
     .gallery-container img {
