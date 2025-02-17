@@ -5,105 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Натяжні стелі</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Стили для модального окна */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-        }
-        .modal.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal-content {
-            background: #1f1f1f;
-            padding: 25px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transform: scale(0.8);
-            transition: transform 0.3s ease-in-out;
-        }
-        .modal.show .modal-content {
-            transform: scale(1);
-        }
-        .modal h2 {
-            margin-bottom: 15px;
-            color: #f5a623;
-        }
-        .modal input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #444;
-            background: #2c2c2c;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 1em;
-            outline: none;
-        }
-        .modal button {
-            width: 100%;
-            padding: 12px;
-            background: #f5a623;
-            border: none;
-            color: #121212;
-            font-size: 1.2em;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .modal button:hover {
-            background: #ff7e00;
-        }
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 24px;
-            color: #fff;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        .close:hover {
-            color: #f5a623;
-        }
-    </style>
-</head>
-<body>
 
+</head>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("orderModal");
+        const openModalBtn = document.querySelector(".btn");
+        const closeModalBtn = document.querySelector(".close");
+
+        // Открытие модального окна
+        openModalBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // Отменяем действие ссылки
+            modal.classList.add("show");
+        });
+
+        // Закрытие модального окна
+        closeModalBtn.addEventListener("click", function () {
+            modal.classList.remove("show");
+        });
+
+        // Закрытие при клике вне окна
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.classList.remove("show");
+            }
+        });
+    });
+</script>
+
+
+<body>
     <div class="header">
         <h2>Натяжні стелі</h2>
-        <div>
+        <div class="header-links">
             <a href="#gallery">Приклади робіт</a>
-            <a href="https://instagram.com/top__steli.nk/" target="_blank">
-                <img src="images/instagram.png" alt="Instagram" loading="lazy">Instagram
-            </a>
-            <a href="tel:+1234567890">Зателефонувати</a>
         </div>
     </div>
     
+    
+    
     <div class="hero">
+        <div class="hero__bg"></div> <!-- Контейнер с фоном -->
         <h1>Натяжні стелі бездоганної якості</h1>
         <p>Якісні матеріали, стильний дизайн та професійний монтаж.</p>
-        <a href="#" class="btn" onclick="openModal()">Заказать</a>
+        <a href="#" class="btn">Заказать</a>
     </div>
-
+    
     <!-- Модальное окно -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
@@ -117,15 +65,44 @@
         </div>
     </div>
 
-    <div id="contact" class="contact">
-        <h2>Зв'яжіться з нами</h2>
-        <p>📞 <a href="tel:+1234567890">+1 234 567 890</a></p>
-        <p>
-            <a href="https://instagram.com/top__steli.nk/" target="_blank">
-                <img src="images/instagram.png" alt="Instagram" loading="lazy" class="instagram-logo">Instagram
-            </a>
-        </p>
+<section id="gallery" class="gallery">
+    <h2>Наші роботи</h2>
+    <div class="gallery-container">
+        <img src="images/photo1.jpg" alt="Приклад роботи 1" loading="lazy">
+        <img src="images/photo2.jpg" alt="Приклад роботи 2" loading="lazy">
+        <img src="images/photo3.jpg" alt="Приклад роботи 3" loading="lazy">
+        <img src="images/photo4.jpg" alt="Приклад роботи 4" loading="lazy">
+        <img src="images/photo5.jpg" alt="Приклад роботи 5" loading="lazy">
+        <img src="images/photo6.jpg" alt="Приклад роботи 6" loading="lazy">
+        <img src="images/photo7.jpg" alt="Приклад роботи 7" loading="lazy">
+        <img src="images/photo8.jpg" alt="Приклад роботи 8" loading="lazy">
+        <img src="images/photo9.jpg" alt="Приклад роботи 9" loading="lazy">
+        <img src="images/photo10.jpg" alt="Приклад роботи 10" loading="lazy">
     </div>
+</section>
+
+
+
+
+<div id="contact" class="contact">
+    <h2>Наші соціальні мережі</h2>
+    <p style="display: flex; align-items: center; justify-content: center;">
+        <a href="https://instagram.com/ваш_профиль" target="_blank" style="display: flex; align-items: center;">
+            <img src="images/instagram.png" alt="Instagram" loading="lazy" class="instagram-logo" style="width: 30px; height: auto;">
+            <span>Instagram</span>
+        </a>
+    </p>
+    <p style="display: flex; align-items: center; justify-content: center;">
+        <a href="https://tiktok.com/@ваш_профиль" target="_blank" style="display: flex; align-items: center;">
+            <img src="images/tiktok.png" alt="TikTok" loading="lazy" class="tiktok-logo" style="width: 30px; height: auto;">
+            <span>TikTok</span>
+        </a>
+    </p>
+</div>
+
+
+
+
 
     <script>
         // Открытие и закрытие модального окна
