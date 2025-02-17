@@ -294,15 +294,4 @@ body {
     transform: scale(1.55);
 }
 
-/* Стили для увеличенной картинки */
-@media (max-width: 768px) {
-    .gallery img {
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
 
-    .gallery img.active {
-        transform: scale(2); /* Увеличение картинки */
-        z-index: 9999; /* Чтобы картинка была поверх других */
-    }
-}
