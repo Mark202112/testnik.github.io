@@ -342,5 +342,38 @@ body {
 .gallery-container img:hover {
     transform: scale(1.55);
 }
+/*ТЕКСТ НА ФОНЕ КАРТИНКИ*/
+.hero-container {
+    position: relative;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero-text {
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный чёрный фон */
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+    max-width: 90%;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .hero-text {
+        font-size: 1.5em;
+        padding: 10px 15px;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text {
+        font-size: 1.2em;
+        padding: 8px 12px;
+    }
+}
 
 
