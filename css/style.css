@@ -136,7 +136,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('background.jpg') center/cover no-repeat;
+    background: url('background.webp') center/cover no-repeat;
 }
 
 /* Новый текстовый блок поверх background-container */
