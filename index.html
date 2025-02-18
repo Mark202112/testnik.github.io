@@ -2,9 +2,10 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Натяжні стелі</title>
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <script>
@@ -33,6 +34,7 @@
     });
 </script>
 
+
 <body>
     <div class="header">
         <h2>Натяжні стелі</h2>
@@ -40,60 +42,18 @@
             <a href="#gallery">Приклади робіт</a>
         </div>
     </div>
-   
-<div class="background-container">
+    
+    
+    
     <div class="hero-text">
+        <div class=.hero-container"></div> <!-- Контейнер с фоном -->
         <h1>Сучасні натяжні стелі у Миколаєві</h1>
         <p>Привіт мене звати Данііл. Моя команда реалізує буд-які рішення в натяжних стелях</p>
         <p>🔝Матеріали преміум якості</p>
         <a href="#" class="btn">Заказать</a>
     </div>
+    
 
-    <style>
-        /* Контейнер с фоном */
-        .background-container {
-            width: 100%;
-            min-height: 400px; /* Высота для мобильных */
-            padding: 50px 20px;
-            background: url('background.webp') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            border-radius: 10px; /* Скругление, если контейнер не на весь экран */
-        }
-
-        /* Затемнение фона для читабельности */
-        .background-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный */
-            border-radius: inherit;
-        }
-
-        /* Текст в контейнере */
-        .background-container h2, 
-        .background-container p,
-        .background-container .btn {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Адаптация для мобильных */
-        @media (max-width: 768px) {
-            .background-container {
-                min-height: 300px; /* Уменьшенная высота */
-                background: url('background.webp') center/cover no-repeat;
-            }
-        }
-    </style>
 
     <!-- Модальное окно -->
     <div id="orderModal" class="modal">
